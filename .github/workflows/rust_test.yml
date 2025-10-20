@@ -30,6 +30,9 @@ jobs:
           target/
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
+    - name: Setup 32bit rust target
+      run: rustup target add i586-unknown-linux-musl
+
     - name: Build 32bit 
       run: cargo build --target i586-unknown-linux-musl --release --verbose
     - name: Lint with clippy
