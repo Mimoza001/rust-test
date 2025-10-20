@@ -34,7 +34,7 @@ jobs:
       run: rustup target add i586-unknown-linux-musl
 
     - name: Build 32bit 
-      run: cargo build --target i586-unknown-linux-musl --verbose
+      run: cargo build --target i586-unknown-linux-musl --release --verbose
     - name: Lint with clippy
       run: cargo clippy --all-targets --all-features
     - name: Check formatting
@@ -43,5 +43,5 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        path: target/debug/rust-test
+        path: target/release
 
