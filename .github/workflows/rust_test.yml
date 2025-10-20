@@ -39,3 +39,9 @@ jobs:
       run: cargo clippy --all-targets --all-features
     - name: Check formatting
       run: cargo fmt --all --check
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        path: out
+
